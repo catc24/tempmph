@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "index.c",
+      "use": "@vercel/build-utils/lambda",
+      "config": {
+        "maxLambdaSize": "10mb"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/temp-to-vel",
+      "methods
