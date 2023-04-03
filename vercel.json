@@ -4,6 +4,9 @@
       "src": "index.c",
       "use": "@vercel/build-utils/lambda",
       "config": {
+        "includeFiles": [
+          "temp-to-vel"
+        ],
         "maxLambdaSize": "10mb"
       }
     }
@@ -11,4 +14,13 @@
   "routes": [
     {
       "src": "/api/temp-to-vel",
-      "methods
+      "methods": ["GET"]
+    }
+  ],
+  "functions": {
+    "temp-to-vel": {
+      "memory": 128,
+      "runtime": "vercel.cgo"
+    }
+  }
+}
