@@ -1,0 +1,28 @@
+name: temp-to-vel
+
+modules:
+  - name: app
+    path: .
+
+models:
+  - name: velocity
+    description: "Calculate the velocity of an atom based on its temperature."
+    env:
+      BOLTZMANN_CONSTANT: 1.38064852e-23
+      MASS_OF_ATOM: 1.66053906660e-27
+    commands:
+      - pip install runway-python
+      - gcc -o temp-to-vel index.c
+
+    inputs:
+      - name: temperature
+        type: number
+        description: "The temperature of the atom in Kelvin."
+        required: true
+
+    outputs:
+      - name: velocity
+        type: number
+        description: "The velocity of the atom in miles per hour."
+
+    handler: temp-to-vel.c
